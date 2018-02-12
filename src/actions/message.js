@@ -1,4 +1,4 @@
-import { SET_MESSAGE } from './index';
+import { SET_MESSAGE } from './ActionTypes';
 
 export const setMessage = (message) => {
     return dispatch => {

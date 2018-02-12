@@ -1,4 +1,4 @@
-import {SET_MESSAGE} from '../actions'
+import {SET_MESSAGE} from '../actions/ActionTypes'
 
 const initState = {
     message: ''

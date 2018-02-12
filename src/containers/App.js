@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
-import InputPreview from '../component/App';
 import {connect} from 'react-redux';
 import {setMessage} from '../actions/message';
-import {Link} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
+
+import ButtonAppBar from '../component/ButtonAppBar';
+
 
 class App extends Component {
 
@@ -11,18 +13,15 @@ class App extends Component {
     };
 
     render() {
-        const {message} = this.props.messageReducer;
-
         return (
             <div>
-                <span>{message}</span>
-                <InputPreview value={message} onChange={this._onChange}/>
-                <Link to="/about">
-                    <button>Go to About</button>
-                </Link>
+                <ButtonAppBar/>
+                <div>
+                    { this.props.children }
+                </div>
             </div>
         )
     };
 }
 
-export default connect(state => state)(App);
+export default withRouter(connect(state => state)(App));
