@@ -1,11 +1,11 @@
 import React from 'react';
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
-import ButtonAppBar from './ButtonAppBar';
 import Grid from 'material-ui/Grid';
 import Card, {CardContent, CardActions} from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
+import {Link} from "react-router-dom";
 
 class LoginForm extends React.Component {
 
@@ -66,7 +66,7 @@ class LoginForm extends React.Component {
                     </CardContent>
                     <Grid container justify="space-between">
                         <CardActions className={classes.bottom}>
-                            <Button onClick={this._onRegister}> Register </Button>
+                            <Button component={Link} color="inherit" to="/register"> Register </Button>
                         </CardActions>
                         <CardActions className={classes.bottom}>
                             <Button color="primary" onClick={this._onLogin}> Login </Button>

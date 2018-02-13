@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { withStyles } from 'material-ui/styles';
+import {withStyles} from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
@@ -24,20 +24,20 @@ const styles = {
 };
 
 function ButtonAppBar(props) {
-    const { classes } = props;
+    const {classes} = props;
     return (
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
                     <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-                        <MenuIcon />
+                        <MenuIcon/>
                     </IconButton>
                     <Typography variant="title" color="inherit" className={classes.flex}>
                         Title
                     </Typography>
-                    <Link to="/login">
-                        <Button color="inherit">Login</Button>
-                    </Link>
+                    <Button component={Link} color="inherit" to="/login">
+                        Login
+                    </Button>
                 </Toolbar>
             </AppBar>
         </div>

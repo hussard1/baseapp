@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {setMessage} from '../actions/message';
 import {withRouter} from 'react-router-dom';
 
-import ButtonAppBar from '../component/ButtonAppBar';
+import ButtonAppBar from '../component/Header';
 
 
 class App extends Component {

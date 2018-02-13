@@ -3,6 +3,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import App from '../containers/App';
 import About from '../containers/About';
 import Login from '../containers/Login';
+import Register from '../containers/Register';
 
 export default () => {
     return (
@@ -10,7 +11,8 @@ export default () => {
             <App>
                 <Switch>
                     <Route path='/about' component={About}/>
-                    <Route path='/Login' component={Login}/>
+                    <Route path='/login' component={Login}/>
+                    <Route path='/register' component={Register}/>
                 </Switch>
             </App>
         </BrowserRouter>

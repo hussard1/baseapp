@@ -6,13 +6,21 @@ import Card, {CardContent, CardActions} from 'material-ui/Card';
 import Typography from 'material-ui/Typography';
 import {withStyles} from 'material-ui/styles';
 
+import AlertDialog from './AlertDialog';
+import {Link} from "react-router-dom";
+
 class RegisterForm extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            alertDialog: {
+                open: false,
+                title: '',
+                description: ''
+            }
         }
     }
 
@@ -22,10 +30,11 @@ class RegisterForm extends React.Component {
         this.setState(nextState);
     }
 
-    _onLogin = () => {
+    _onRegister = () => {
+        this.setState({open: true});
         let {username, password} = this.state;
 
-        this.props.onLogin(username, password)
+        this.props.onRegister(username, password)
             .then((response) => {
                 this.setState({
                     username: '',
@@ -34,42 +43,54 @@ class RegisterForm extends React.Component {
             })
     };
 
+    handleClose = () => {
+        this.setState({open: false});
+    };
+
     render() {
 
         const {classes} = this.props;
 
         return (
-            <Grid container className={classes.root} justify='center'>
-                <Card className={classes.card}>
-                    <CardContent className={classes.contents}>
-                        <Typography className={classes.title}>
-                            LOGIN
-                        </Typography>
-                        <TextField
-                            className={classes.textField}
-                            placeholder="Enter your Username"
-                            label="Username"
-                            onChange={this._handleChange}
-                        />
-                        <br/>
-                        <TextField
-                            className={classes.textField}
-                            type="password"
-                            placeholder="Enter your Password"
-                            label="Password"
-                            onChange={this._handleChange}
-                        />
-                    </CardContent>
-                    <Grid container justify="space-between">
-                        <CardActions className={classes.bottom}>
-                            <Button onClick={this._onRegister}> Cancel </Button>
-                        </CardActions>
-                        <CardActions className={classes.bottom}>
-                            <Button color="primary" onClick={this._onLogin}> Register </Button>
-                        </CardActions>
-                    </Grid>
-                </Card>
-            </Grid>
+            <div>
+                <Grid container className={classes.root} justify='center'>
+                    <Card className={classes.card}>
+                        <CardContent className={classes.contents}>
+                            <Typography className={classes.title}>
+                                REGISTER
+                            </Typography>
+                            <TextField
+                                className={classes.textField}
+                                placeholder="Enter your Username"
+                                label="Username"
+                                onChange={this._handleChange}
+                            />
+                            <br/>
+                            <TextField
+                                className={classes.textField}
+                                type="password"
+                                placeholder="Enter your Password"
+                                label="Password"
+                                onChange={this._handleChange}
+                            />
+                        </CardContent>
+                        <Grid container justify="space-between">
+                            <CardActions className={classes.bottom}>
+                                <Button component={Link} color="inherit" to="/login"> CANCEL </Button>
+                            </CardActions>
+                            <CardActions className={classes.bottom}>
+                                <Button color="primary" onClick={this._onRegister}> CREATE </Button>
+                            </CardActions>
+                        </Grid>
+                    </Card>
+                </Grid>
+                <AlertDialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    title={this.state.alertDialog.title}
+                    description={this.state.alertDialog.description}
+                />
+            </div>
         )
     }
 }
