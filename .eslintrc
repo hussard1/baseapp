@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "eol-last": ["off"],
+    "padded-blocks": ["off"]
+  },
+  "extends": ["standard", "react-app"]
+}

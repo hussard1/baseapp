@@ -3,12 +3,12 @@ import messageReducer from './message'
 import thunk from 'redux-thunk'
 
 const reducer = combineReducers({
-    messageReducer
+  messageReducer
 })
 
 const store = createStore(
-    reducer,
-    applyMiddleware(thunk)
+  reducer,
+  applyMiddleware(thunk)
 )
 
-export default store;
+export default store
