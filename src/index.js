@@ -10,7 +10,7 @@ import store from './reducers'
 import Reboot from 'material-ui/Reboot'
 import 'typeface-roboto'
 
-axios.defaults.baseURL = 'http://localhost:5000'
+axios.defaults.baseURL = 'http://localhost:3000'
 
 ReactDOM.render(
   <Provider store={store}>

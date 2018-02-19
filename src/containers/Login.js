@@ -7,8 +7,10 @@ class Login extends Component {
   _onLogin = (username, password) => {
     return this.props.dispatch(loginRequest(username, password))
       .then(() => {
-        console.log(this.props)
         return true
+      })
+      .catch(() => {
+        return false
       })
   }
 
